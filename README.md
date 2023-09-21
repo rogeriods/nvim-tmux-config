@@ -32,21 +32,23 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 Space = leader
 
 Vim
-<li>Ctrl+e - <i style="color: lightgray">Explorer</i></li>
+<li>Ctrl+e - Explorer</li><p />
 
 LSP
-<li>ENTER - <i style="color: lightgray">Confirm completion</i></li>
-<li>Ctrl + Space - <i style="color: lightgray">Trigger completion</i></li>
-<li>Ctrl + f - <i style="color: lightgray">Navigate between snippet - Foward</i></li>
-<li>Ctrl + b - <i style="color: lightgray">Navigate between snippet - Backward</i></li>
-<li>Ctrl + u - <i style="color: lightgray">Scroll completion documentation - Up</i></li>
-<li>Ctrl + d - <i style="color: lightgray">Scroll completion documentation - Down</i></li>
+<li>ENTER - Confirm completion</li>
+<li>Ctrl + Space - Trigger completion</li>
+<li>Ctrl + f - Navigate between snippet - Foward</li>
+<li>Ctrl + b - Navigate between snippet - Backward</li>
+<li>Ctrl + u - Scroll completion documentation - Up</li>
+<li>Ctrl + d - Scroll completion documentation - Down</li><p />
 
 Telescope
-<li>Space ff - <i style="color: lightgray">Find files</i></li>
-<li>Space ft - <i style="color: lightgray">Git files</i></li>
-<li>Space fh - <i style="color: lightgray">Help tags</i></li>
-<li>Space fg - <i style="color: lightgray">Grep string</i></li>
+
+<li>Space ff - Find files</li>
+<li>Space ft - Git files</li>
+<li>Space fh - Help tags</li>
+<li>Space fg - Grep string</li><p />
 
 Undo Tree
-<li>Space u - <i style="color: lightgray">Show undo tree</i></li>
+
+<li>Space u - Show undo tree</li>
