@@ -2,46 +2,57 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
 
-    -- Rose-Pine theme
-    use ({ 'rose-pine/neovim', as = 'rose-pine' })
+	-- Plugins can have post-install/update hooks
+	use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
-    use ({
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    })
+	-- Post-install/update hook with call of vimscript function with argument
+	use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
-    -- Code highlighting
-    use ({
-	    'nvim-treesitter/nvim-treesitter',
-		run = function() 
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end
-	})
+	-- Theme
+	use { 'rose-pine/neovim', as = 'rose-pine' }
 
-    -- Undo listing
-    use ({ 'mbbill/undotree' })
+	-- Fuzzy finder
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.3',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 
-    -- Autocompletion
-    use ({
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            --- Uncomment these if you want to manage LSP servers from neovim
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
-        }
-    })
+	-- Highlighting
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function()
+			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+			ts_update()
+		end
+	}
+	use 'nvim-treesitter/playground'
+	use 'nvim-treesitter/nvim-treesitter-context'
 
-    -- Distraction-free
-    use ({ 'folke/zen-mode.nvim' })
+	-- Undo tree
+	use 'mbbill/undotree'
+
+	-- Autocomplete
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v3.x',
+		requires = {
+			--- Uncomment these if you want to manage LSP servers from neovim
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
+			{'neovim/nvim-lspconfig'},
+			
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-path'},
+			{'saadparwaiz1/cmp_luasnip'},
+			{'hrsh7th/cmp-nvim-lua'},
+			{'L3MON4D3/LuaSnip'},
+			{'rafamadriz/friendly-snippets'},
+		}
+	}
 end)
