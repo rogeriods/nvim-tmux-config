@@ -1,4 +1,7 @@
--- DEFAULT CONFIGURATIONS
+-- Set scheme
+-- vim.cmd [[ colorscheme blue ]]
+
+-- Default configs
 vim.opt.guicursor = ''
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -13,11 +16,21 @@ vim.opt.backup = false
 vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 50
 
--- REMAPS
+-- Remaps
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<C-e>', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+
+-- Move selected lines up/down
+local map = vim.keymap.set
+map("x", "K", ":move '<-2<CR>gv=gv", {})
+map("x", "J", ":move '>+1<CR>gv=gv", {})
+
+-- Disable warnings
+vim.cmd [[ let g:loaded_perl_provider = 0 ]]
+vim.cmd [[ let g:loaded_python3_provider = 0 ]]
+vim.cmd [[ let g:loaded_ruby_provider = 0 ]]
