@@ -1,8 +1,6 @@
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
-    -- see :help lsp-zero-keybindings
-    -- to learn the available actions
     lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
@@ -19,10 +17,10 @@ require('mason-lspconfig').setup({
 })
 
 lsp_zero.set_sign_icons({
-    error = 'x',
-    warn = 'w',
-    hint = 'h',
-    info = 'i'
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
 })
 
 vim.diagnostic.config({
@@ -62,23 +60,12 @@ cmp.setup({
         {name = 'luasnip', keyword_length = 2},
     },
     mapping = cmp.mapping.preset.insert({
-        -- confirm completion item
         ['<C-y>'] = cmp.mapping.confirm({select = false}),
-
-        -- toggle completion menu
-        -- ['<C-e>'] = cmp_action.toggle_completion(),
-
-        -- tab complete
         ['<Tab>'] = cmp_action.tab_complete(),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-
-        -- navigate between snippet placeholder
         ['<C-d>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-        -- scroll documentation window
         ['<C-f>'] = cmp.mapping.scroll_docs(5),
         ['<C-u>'] = cmp.mapping.scroll_docs(-5),
     }),
 })
-

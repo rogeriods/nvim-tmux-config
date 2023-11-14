@@ -1,7 +1,3 @@
--- Set scheme
--- vim.cmd [[ colorscheme blue ]]
-
--- Default configs
 vim.opt.guicursor = ''
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -16,21 +12,22 @@ vim.opt.backup = false
 vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 50
+vim.opt.colorcolumn = '120'
 
--- Remaps
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
--- Move selected lines up/down
 local map = vim.keymap.set
-map("x", "K", ":move '<-2<CR>gv=gv", {})
-map("x", "J", ":move '>+1<CR>gv=gv", {})
 
--- Disable warnings
+map("x", "K", ":move '<-2<CR>gv=gv", {}) -- move selected up
+map("x", "J", ":move '>+1<CR>gv=gv", {}) -- move selected down
+map('x', 'C', '"+y', {}) -- copy selected outside nvim
+
 vim.cmd [[ let g:loaded_perl_provider = 0 ]]
 vim.cmd [[ let g:loaded_python3_provider = 0 ]]
 vim.cmd [[ let g:loaded_ruby_provider = 0 ]]
+vim.cmd [[ let g:loaded_node_provider = 0 ]]
