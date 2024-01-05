@@ -6,3 +6,11 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fg', function()
 	builtin.grep_string({ search = vim.fn.input('Grep > ') })
 end)
+
+require('telescope').setup{ 
+    defaults = { 
+        file_ignore_patterns = { 
+            "node_modules", "venv", ".git", "target" 
+        }
+    }
+}

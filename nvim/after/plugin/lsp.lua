@@ -6,7 +6,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = {'rust_analyzer'},
+    ensure_installed = {'gopls'},
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -24,7 +24,7 @@ lsp_zero.set_sign_icons({
 })
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     severity_sort = true,
     float = {
         style = 'minimal',
@@ -60,12 +60,7 @@ cmp.setup({
         {name = 'luasnip', keyword_length = 2},
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-y>'] = cmp.mapping.confirm({select = false}),
-        ['<Tab>'] = cmp_action.tab_complete(),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<C-d>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-        ['<C-f>'] = cmp.mapping.scroll_docs(5),
-        ['<C-u>'] = cmp.mapping.scroll_docs(-5),
+        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        ['<Tab>'] = cmp_action.tab_complete()
     }),
 })

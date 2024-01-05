@@ -1,9 +1,0 @@
-[user]
-	name = Rogério Domingos
-	email = rogerio.ds@hotmail.com
-[color]
-	ui = auto
-[merge]
-	conflictstyle = diff3
-[core]
-	editor = C:\\tools\\vim\\vim90\\vim.exe
