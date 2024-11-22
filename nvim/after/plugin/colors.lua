@@ -1,26 +1,29 @@
-require('gruvbox').setup({
-    terminal_colors = true, -- add neovim terminal colors
-    undercurl = true,
-    underline = true,
-    bold = true,
-    italic = {
-        strings = true,
-        emphasis = true,
-        comments = true,
-        operators = false,
-        folds = true,
+require('rose-pine').setup({
+    variant = 'auto', -- auto, main, moon, or dawn
+    dark_variant = 'main', -- main, moon, or dawn
+    dim_inactive_windows = false,
+    extend_background_behind_borders = true,
+
+    enable = {
+        terminal = true,
+        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+        migrations = true, -- Handle deprecated options automatically
     },
-    strikethrough = true,
-    invert_selection = false,
-    invert_signs = false,
-    invert_tabline = false,
-    invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "", -- can be "hard", "soft" or empty string
-    palette_overrides = {},
-    overrides = {},
-    dim_inactive = false,
-    transparent_mode = false,
+
+    styles = {
+        bold = true,
+        italic = false,
+        transparency = true,
+    },
+
+    palette = {},
+
+    highlight_groups = {
+        -- Comment = { fg = 'foam' },
+    },
+
+    before_highlight = function(group, highlight, palette)
+    end,
 })
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd('colorscheme rose-pine')

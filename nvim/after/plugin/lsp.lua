@@ -6,7 +6,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = {'gopls'},
+    ensure_installed = {},
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -60,7 +60,7 @@ cmp.setup({
         {name = 'luasnip', keyword_length = 2},
     },
     mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        ['<C-y>'] = cmp.mapping.confirm({select = false}),
         ['<Tab>'] = cmp_action.tab_complete()
     }),
 })
