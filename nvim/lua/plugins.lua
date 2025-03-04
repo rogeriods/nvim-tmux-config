@@ -3,14 +3,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'tpope/vim-fugitive'
-    use 'lukas-reineke/indent-blankline.nvim'
+    use 'lewis6991/gitsigns.nvim'
 
     use { 'rose-pine/neovim', name = 'rose-pine' }
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.3',
